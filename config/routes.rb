@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :fees
   resources :course_units
   resources :units
   resources :courses
