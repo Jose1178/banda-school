@@ -21,9 +21,12 @@ function LoginForm() {
                 <input type="password" className="outline-none border border-black p-2" name="password" placeholder="Password"/>
             </div>
 
-            <NavLink to="/">Forgot password</NavLink>
-
-                <button className="bg-blue-800 w-max px-2 my-2 mx-auto rounded-md">Login</button>
+            <NavLink to="/">Forgot password?</NavLink>
+            <div className="mr-2">
+                <input type="checkbox" className="mr-2"></input>
+                <span>Remember me</span>
+                <button className="bg-blue-800 w-max px-2 my-2 mx-auto rounded-md hover:bg-sky-300 hover:text-white ml-4">Login</button>
+            </div>
          </form>
         </div>
       </div>

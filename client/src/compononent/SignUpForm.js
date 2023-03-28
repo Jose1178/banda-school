@@ -22,7 +22,7 @@
                 <label>Password:</label>
                 <input type="password" className="label2" name="password"/>
 
-                <button  className="bg-blue-800 w-max px-2 my-2 mx-auto rounded-md">SignUp</button>
+                <button  className="bg-blue-800 w-max px-2 my-2 mx-auto rounded-md hover:bg-sky-300 hover:text-white">SignUp</button>
 
             </form>
         </div>
