@@ -23,8 +23,8 @@
                 <label>Password:</label>
                 <input type="password" className="label2" name="password"/>
 
-                <button >SignUp</button>
-                {/* className="bg-blue-800 w-max px-2 my-2 mx-auto rounded-md" */}
+                <button  className="bg-blue-800 w-max px-2 my-2 mx-auto rounded-md">SignUp</button>
+
             </form>
         </div>
 
