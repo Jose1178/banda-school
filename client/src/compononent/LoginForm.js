@@ -1,6 +1,6 @@
  import {GiPadlock} from "react-icons/gi"
 import {RiAccountCircleFill} from "react-icons/ri"
-// import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function LoginForm() {
 
@@ -21,7 +21,7 @@ function LoginForm() {
                 <input type="password" className="outline-none border border-black p-2" name="password" placeholder="Password"/>
             </div>
 
-            {/* <NavLink to="/">Forgot password</NavLink> */}
+            <NavLink to="/">Forgot password</NavLink>
 
                 <button className="bg-blue-800 w-max px-2 my-2 mx-auto rounded-md">Login</button>
          </form>
