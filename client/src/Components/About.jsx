@@ -3,7 +3,7 @@ import Nav from "./Nav";
 
 function About() {
   return (
-    <div className="h-screen bg-slate-300">
+    <div className="bg-slate-300">
       <Nav />
       <h1 className="text-3xl mt-2 underline">About Our School</h1>
       <div className="px-20 text-left">

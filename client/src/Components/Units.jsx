@@ -27,7 +27,7 @@ function Units() {
         <img
           className="w-full"
           src={`https://source.unsplash.com/random/800x600?job&${unit.name}`}
-          alt="Mountain"
+          alt={unit.name}
         />
         <div className="px-6 py-4">
           <div className="underline font-bold text-left text-xl mb-2">

@@ -19,7 +19,7 @@ function Courses() {
         <img
           className="w-full"
           src={`https://source.unsplash.com/random/800x600?job&${course.id}`}
-          alt="Mountain"
+          alt={course.name}
         />
         <div className="px-6 py-4">
           <div className="underline font-bold text-left text-xl mb-2">
