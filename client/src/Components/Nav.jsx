@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function Nav() {
   return (
@@ -19,40 +20,31 @@ function Nav() {
             className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
             id="navbar-sticky"
           >
-            <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white">
-              <li>
-                <a
-                  href="/"
-                  className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0"
-                  aria-current="page"
-                >
-                  Home
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/courses"
-                  className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
-                >
-                  Courses
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/about us"
-                  className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
-                >
-                  About
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/contact"
-                  className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
-                >
-                  Contact
-                </a>
-              </li>
+            <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-500 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
+              <NavLink
+                to="/"
+                className={({ isActive }) => (isActive ? "text-yellow-500 font-bold underline" : "")}
+              >
+                Home
+              </NavLink>
+              <NavLink
+                to="/courses"
+                className={({ isActive }) => (isActive ? "text-yellow-500 font-bold underline" : "")}
+              >
+                Courses
+              </NavLink>
+              <NavLink
+                to="/about"
+                className={({ isActive }) => (isActive ? "text-yellow-500 font-bold underline" : "")}
+              >
+                About
+              </NavLink>
+              <NavLink
+                to="/contact"
+                className={({ isActive }) => (isActive ? "text-yellow-500 font-bold underline" : "")}
+              >
+                Contact
+              </NavLink>
             </ul>
           </div>
         </div>

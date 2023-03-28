@@ -6,6 +6,8 @@ import LandingPage from "./Components/LandingPage";
 import { useEffect, useState } from "react";
 import Courses from "./Components/Courses";
 import Units from "./Components/Units";
+import About from "./Components/About";
+import Contact from "./Components/Contact";
 
 function App() {
    const [user, setUser] = useState(null);
@@ -25,6 +27,8 @@ function App() {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/courses" element={<Courses />}></Route>
         <Route path="/courses/units/:id" element={<Units />}></Route>
+        <Route path="/about" element={<About />}></Route>
+        <Route path="/contact" element={<Contact />}></Route>
       </Routes>
     </div>
   );

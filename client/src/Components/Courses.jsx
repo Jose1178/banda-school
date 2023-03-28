@@ -35,7 +35,7 @@ function Courses() {
   });
 
   return (
-    <div className="bg-gray-400">
+    <div className="bg-slate-300">
       <Nav />
       <h1 className="mt-3 underline text-3xl">Banda School Courses</h1>
       <div className="mt-4 px-10 text-left">

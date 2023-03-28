@@ -41,7 +41,7 @@ function Units() {
     );
   });
   return (
-    <div className="bg-gray-400">
+    <div className="bg-gray-300">
       <Nav />
       <h1 className="mt-3 underline text-3xl">{`${course.name} units`}</h1>
       <div className="mt-4 px-10 text-left">
@@ -65,6 +65,7 @@ function Units() {
           need to succeed academically and in life. So, take a look around and
           see what we have to offer.
         </p>
+        <h2 className="text-center text-xl text-bold mt-5">Below are the units for this course.</h2>
       </div>
       <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-5">
         {unitsDiv}
