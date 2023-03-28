@@ -1,6 +1,6 @@
-import {GiPadlock} from "react-icons/gi"
+// import {GiPadlock} from "react-icons/gi"
 import {RiAccountCircleFill} from "react-icons/ri"
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 
 function LoginForm() {
 
@@ -14,14 +14,14 @@ function LoginForm() {
                 </div>
                 <input type="text" className="outline-none border border-black p-2" name="admissionnumber" placeholder="Admission Number"/>
            </div>
-            <div className="flex border">
+            {/* <div className="flex border">
                 <div className="border border-black py-2 px-3 flex items-center">
                  <GiPadlock/>
-                </div>
+                </div> */}
                 <input type="password" className="outline-none border border-black p-2" name="password" placeholder="Password"/>
-            </div>
+            {/* </div> */}
 
-            <NavLink to="/">Forgot password</NavLink>
+            {/* <NavLink to="/">Forgot password</NavLink> */}
 
                 <button className="bg-blue-800 w-max px-2 my-2 mx-auto rounded-md">Login</button>
          </form>

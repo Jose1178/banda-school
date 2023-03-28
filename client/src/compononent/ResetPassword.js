@@ -1,7 +1,7 @@
-function ResetPassword(){
-    return(
-        <div></div>
-    )
-}
+// function ResetPassword(){
+//     return(
+//         <div></div>
+//     )
+// }
 
-export default ResetPassword
+// export default ResetPassword
