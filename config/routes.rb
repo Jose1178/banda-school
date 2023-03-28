@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   resources :fees
   resources :course_units
-  resources :units
-  resources :courses
+  resources :units, only: [:index]
+  resources :courses, only: [:index, :show]
   resources :admins
   resources :students
   post "/login", to: "sessions#create"

@@ -2,20 +2,15 @@
 10.times do
     course = Course.create(
       name: Faker::Educator.course_name,
-      description: Faker::Lorem.sentence
-    )
-    # create a related fee for each course
-    Fee.create(
-      title: "Fee for #{course.name}",
-      amount: Faker::Number.between(from: 1000, to: 10000),
-      course_id: course.id
+      fee: Faker::Number.between(from: 10000, to: 100000),
+      description: Faker::Lorem.paragraphs(number: 3, supplemental: true).join("\n\n")
     )
     # create a random number of units (between 5 and 7) for each course
     units = []
     rand(5..7).times do
       unit = Unit.create(
         name: Faker::Educator.course_name,
-        description: Faker::Lorem.sentence
+        description: Faker::Lorem.paragraphs(number: 3, supplemental: true).join("\n\n")
       )
       units << unit
     end
