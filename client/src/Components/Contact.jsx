@@ -16,7 +16,7 @@ export default function Contact() {
     });
   }
   return (
-    <div className="bg-slate-300">
+    <div className="bg-white">
         <Nav/>
       <section className="text-gray-700 body-font relative">
         <div className="container px-5 py-24 mx-auto">

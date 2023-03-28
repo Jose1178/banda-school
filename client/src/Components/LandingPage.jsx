@@ -6,7 +6,7 @@ import img2 from "../images/academics.jpg";
 
 function LandingPage() {
   return (
-    <div className="bg-slate-300">
+    <div className="bg-white">
       <Nav />
       <div className="mt-4 font-serif">
         <p className="font-black text-4xl">Students’ self-help portal</p>
@@ -15,7 +15,7 @@ function LandingPage() {
           details, access personalized communication and the self-help tools.
         </p>
 
-        <div className="container mx-auto mt-2">
+        <div className="container mx-auto mt-2 mb-4">
           <div className="grid grid-cols-3 gap-3">
             <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mr-5">
               <a href="/courses">
