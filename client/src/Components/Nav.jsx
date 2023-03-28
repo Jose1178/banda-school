@@ -1,7 +1,26 @@
-import React from "react";
+import React, {useContext} from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import { UserContext } from "../App";
 
 function Nav() {
+  const navigate = useNavigate();
+  const [user, setUser] = useContext(UserContext);
+
+  function logout() {
+    // setTimeout(() => navigate("/login"), 1000);
+    if(user === true){
+      fetch("/logout", {
+        method: "delete",
+      }).then((res) => {
+        if (res.status === 204) {
+          setTimeout(() => navigate("/"), 1000);
+          setUser(false);
+        }
+      });
+    }else{
+      setTimeout(() => navigate("/login"), 1000);
+    }
+  }
   return (
     <div>
       <div className="bg-black p-4">
@@ -23,28 +42,49 @@ function Nav() {
             <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-500 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
               <NavLink
                 to="/"
-                className={({ isActive }) => (isActive ? "text-yellow-500 font-bold underline" : "")}
+                className={({ isActive }) =>
+                  isActive ? "text-yellow-500 font-bold underline" : "underline"
+                }
               >
                 Home
               </NavLink>
               <NavLink
                 to="/courses"
-                className={({ isActive }) => (isActive ? "text-yellow-500 font-bold underline" : "")}
+                className={({ isActive }) =>
+                  isActive ? "text-yellow-500 font-bold underline" : "underline"
+                }
               >
                 Courses
               </NavLink>
               <NavLink
                 to="/about"
-                className={({ isActive }) => (isActive ? "text-yellow-500 font-bold underline" : "")}
+                className={({ isActive }) =>
+                  isActive ? "text-yellow-500 font-bold underline" : "underline"
+                }
               >
                 About
               </NavLink>
               <NavLink
                 to="/contact"
-                className={({ isActive }) => (isActive ? "text-yellow-500 font-bold underline" : "")}
+                className={({ isActive }) =>
+                  isActive ? "text-yellow-500 font-bold underline" : "underline"
+                }
               >
                 Contact
               </NavLink>
+
+              <NavLink
+                to="/dashboard"
+                className={({ isActive }) =>
+                  isActive ? "text-yellow-500 font-bold underline" : "underline"
+                }
+              >
+                Dashboard
+              </NavLink>
+
+              <button onClick={logout} className="underline cursor-pointer">
+                {user === true ? "Logout" : "Login"}
+              </button>
             </ul>
           </div>
         </div>

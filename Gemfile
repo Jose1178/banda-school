@@ -11,6 +11,8 @@ gem "sqlite3", "~> 1.4"
 
 gem "faker"
 
+gem "bcrypt"
+
 gem "active_model_serializers"
 
 # Use the Puma web server [https://github.com/puma/puma]

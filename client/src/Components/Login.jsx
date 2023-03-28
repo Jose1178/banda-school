@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { GiPadlock } from "react-icons/gi";
 import { RiAccountCircleFill } from "react-icons/ri";
+import { UserContext } from "../App";
 
-function Login({ userId }) {
+function Login() {
   const navigate = useNavigate();
+  const [user, setUser] = useContext(UserContext);
   const [login, setLogin] = useState({
     admission_number: "",
     password: "",
@@ -20,12 +22,24 @@ function Login({ userId }) {
       },
       body: JSON.stringify({ login }),
     })
-    .then((res) => res.json())
-    .then((data) => console.log(data));
-    // setLogin({
-    //   admission_number: "",
-    //   password: "",
-    // });
+    .then((res) => {res.json()
+      console.log(res);
+      if (res.status === 201) {
+        setTimeout(() => navigate("/"), 1000);
+        setUser(true)
+      }else{
+        Swal.fire({
+          title: "Wrong password or admission number",
+          icon: "error",
+          timer: 2000
+        });
+      }
+    })
+    .then(data => console.log(data));
+    setLogin({
+      admission_number: "",
+      password: "",
+    });
   }
 
 //   function validateUser(user) {
@@ -41,7 +55,7 @@ function Login({ userId }) {
 //     }
 //   }
   return (
-    <section className="h-screen bg-slate-300">
+    <section className="bg-slate-300">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
         <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
