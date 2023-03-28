@@ -2,7 +2,7 @@
 
   return (
       <div>
-        {/* <div className="flex justify-center"> */}
+        <div className="flex justify-center">
         <form >
         {/* className="flex flex-col px-10 bg-slate-300 max-w-lg my-8" */}
                 <label>Name:</label>
@@ -27,7 +27,8 @@
                 {/* className="bg-blue-800 w-max px-2 my-2 mx-auto rounded-md" */}
             </form>
         </div>
-    //   </div>
+
+    </div>
     )
   }
 
