@@ -1,9 +1,10 @@
 import React, { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { GiPadlock } from "react-icons/gi";
 import { RiAccountCircleFill } from "react-icons/ri";
 import { UserContext } from "../App";
+import  SignUpForm from './SignUpForm'
 
 function Login() {
   const navigate = useNavigate();
@@ -125,7 +126,12 @@ function Login() {
               >
                 Login
               </button>
+               <div className="color-black">
+                  <Link to="/SignUpForm">Admin Log in/Sign up</Link>
+                  {/* <a href="/SignUpForm">Admin Log in/Sign up</a> */}
+               </div>
             </form>
+            
           </div>
         </div>
       </div>
