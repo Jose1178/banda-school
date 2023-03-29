@@ -73,14 +73,18 @@ function Nav() {
                 Contact
               </NavLink>
 
-              <NavLink
-                to="/dashboard"
-                className={({ isActive }) =>
-                  isActive ? "text-yellow-500 font-bold underline" : "underline"
-                }
-              >
-                Dashboard
-              </NavLink>
+              {user && (
+                <NavLink
+                  to="/dashboard"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-yellow-500 font-bold underline"
+                      : "underline"
+                  }
+                >
+                  Dashboard
+                </NavLink>
+              )}
 
               <button onClick={logout} className="underline cursor-pointer">
                 {user === true ? "Logout" : "Login"}

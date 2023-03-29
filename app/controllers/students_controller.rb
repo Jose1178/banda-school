@@ -13,6 +13,11 @@ class StudentsController < ApplicationController
         render json: student, status: :created
     end
 
+    def show
+        student = Student.find_by(id: params[:id])
+        render json: student, serializer: UserSerializer, status: :ok
+    end
+
     private
 
     def student_params

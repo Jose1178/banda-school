@@ -23,7 +23,11 @@ import React, { useState } from "react";
     .then((data) => console.log(data));
     setStudent({
       admission_number: "",
+      name: "",
+      email: "",
       password: "",
+      id_number: "",
+      gender: "",
     });
   }
   return (
@@ -46,7 +50,7 @@ import React, { useState } from "react";
                     type="text"
                     name="admission_number"
                     id="admission_number"
-                    value={student.admission_number}
+                    defaultValue={student.admission_number}
                     onChange={(event) =>
                       setStudent((prevState) => ({
                         ...prevState,
@@ -69,7 +73,7 @@ import React, { useState } from "react";
                     type="text"
                     name="name"
                     id="name"
-                    value={student.name}
+                    defaultValue={student.name}
                     onChange={(event) =>
                       setStudent((prevState) => ({
                         ...prevState,
@@ -92,7 +96,7 @@ import React, { useState } from "react";
                     type="email"
                     name="email"
                     id="email"
-                    value={student.email}
+                    defaultValue={student.email}
                     onChange={(event) =>
                       setStudent((prevState) => ({
                         ...prevState,
@@ -115,7 +119,7 @@ import React, { useState } from "react";
                     type="text"
                     name="id_number"
                     id="id_number"
-                    value={student.id_number}
+                    defaultValue={student.id_number}
                     onChange={(event) =>
                       setStudent((prevState) => ({
                         ...prevState,
@@ -138,7 +142,7 @@ import React, { useState } from "react";
                     type="text"
                     name="gender"
                     id="gender"
-                    value={student.gender}
+                    defaultValue={student.gender}
                     onChange={(event) =>
                       setStudent((prevState) => ({
                         ...prevState,
