@@ -41,19 +41,6 @@ function Login() {
       password: "",
     });
   }
-
-//   function validateUser(user) {
-//     if (user.password === login.password) {
-//       userId(user.id);
-//       setTimeout(() => navigate("/"), 2000);
-//     } else {
-//       Swal.fire({
-//         title: "Error during validation",
-//         icon: "error",
-//         timer: 2000,
-//       });
-//     }
-//   }
   return (
     <section className="bg-slate-300">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">

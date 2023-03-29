@@ -10,7 +10,6 @@ function Units() {
       .then((res) => res.json())
       .then((data) => {
         setCourse(data);
-        console.log(data);
       });
   }, [id]);
 
