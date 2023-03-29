@@ -9,6 +9,7 @@ import Units from "./Components/Units";
 import About from "./Components/About";
 import Contact from "./Components/Contact";
 import Dashboard from "./Components/Dashboard";
+import ResetPassword from "./Components/ResetPassword";
 
 export const UserContext = createContext();
 function App() {
@@ -33,8 +34,9 @@ function App() {
         <Route path="/about" element={<About />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
         <Route path="/dashboard" element={<Dashboard />}></Route>
+        <Route path="/reset-password" element={<ResetPassword />}></Route>
       </Routes>
-      </UserContext.Provider> 
+      </UserContext.Provider>
     </div>
   );
 }
