@@ -5,7 +5,6 @@ import Swal from "sweetalert2";
 import { GiPadlock } from "react-icons/gi";
 import { RiAccountCircleFill } from "react-icons/ri";
 import { UserContext } from "../App";
-import Admin from "./Admin";
 
 function Login() {
   const navigate = useNavigate();
@@ -123,7 +122,7 @@ function Login() {
               </button>
             </form> 
             <div>
-               <Link to='/admin'>Admin Login/ Sign-up</Link>
+               <Link to='/adminlogin'>Admin Log in</Link>
             </div>
           </div>
         </div>
