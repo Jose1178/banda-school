@@ -10,6 +10,7 @@ import About from "./Components/About";
 import Contact from "./Components/Contact";
 import Dashboard from "./Components/Dashboard";
 import ResetPassword from "./Components/ResetPassword";
+import Admin from "./Components/Admin";
 
 export const UserContext = createContext();
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path="/" element={<LandingPage />}></Route>
         <Route path="/sign-up" element={<SignUpForm />}></Route>
         <Route path="/login" element={<Login />}></Route>
+        <Route path="/admin" element={<Admin />}></Route>
         <Route path="/courses" element={<Courses />}></Route>
         <Route path="/courses/units/:id" element={<Units />}></Route>
         <Route path="/about" element={<About />}></Route>
