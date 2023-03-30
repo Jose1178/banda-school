@@ -1,14 +1,32 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function AdminSignupForm() {
-  const [fullName, setFullName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // TODO: Handle signup form submission
+    console.log({ name, email, password });
+
+    fetch("/admins", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, email, password }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("Success:", data);
+        setName("");
+        setEmail("");
+        setPassword("");
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   };
 
   return (
@@ -17,15 +35,15 @@ function AdminSignupForm() {
         <h2 className="text-2xl font-bold mb-8 text-center">Admin Signup</h2>
         <form className="bg-white p-6 rounded-lg shadow-md" onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label className="block text-gray-700 font-bold mb-2" htmlFor="fullName">
+            <label className="block text-gray-700 font-bold mb-2" htmlFor="name">
               Full Name:
             </label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               type="text"
-              id="fullName"
-              value={fullName}
-              onChange={(e) => setFullName(e.target.value)}
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               required
             />
           </div>

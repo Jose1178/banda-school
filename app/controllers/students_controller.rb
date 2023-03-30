@@ -1,4 +1,6 @@
 class StudentsController < ApplicationController
+
+    
     def logged_in
         student = Student.find_by(id: session[:student_id])
         if student
