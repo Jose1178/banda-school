@@ -1,17 +1,26 @@
+
 import React, { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { GiPadlock } from "react-icons/gi";
 import { RiAccountCircleFill } from "react-icons/ri";
 import { UserContext } from "../App";
+import Admin from "./Admin";
 
 function Login() {
   const navigate = useNavigate();
   const [user, setUser] = useContext(UserContext);
+  //const [showAdmin, setShowAdmin] = useState(false);
   const [login, setLogin] = useState({
     admission_number: "",
     password: "",
   });
+
+
+
+  // function handleAdminClick() {
+  //   navigate("/admin");
+  // }
 
   function handleLogin(event) {
     event.preventDefault();
@@ -112,9 +121,13 @@ function Login() {
               >
                 Login
               </button>
-            </form>
+            </form> 
+            <div>
+               <Link to='/admin'>Admin Login/ Sign-up</Link>
+            </div>
           </div>
         </div>
+        
       </div>
     </section>
   );
