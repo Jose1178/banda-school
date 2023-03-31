@@ -17,7 +17,6 @@ function EditProfile({id, nameC, emailC, reloadPage}) {
       body: JSON.stringify(details),
     })
     .then((res) => {res.json()
-      console.log(res);
       if (res.status === 200) {
         Swal.fire({
             title: "Your fee profile has been updated",

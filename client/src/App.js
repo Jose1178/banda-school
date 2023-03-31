@@ -10,14 +10,15 @@ import About from "./Components/About";
 import Contact from "./Components/Contact";
 import Dashboard from "./Components/Dashboard";
 import ResetPassword from "./Components/ResetPassword";
-//import AdminLoginForm from "./Components/AdminLoginForm";
 import AdminSignupForm from "./Components/AdminSignupForm";
 import AdminLoginForm from "./Components/AdminLoginForm";
 import AdminDashboard from "./Components/AdminDashboard";
 
 export const UserContext = createContext();
+export const AdminContext = createContext();
 function App() {
    const [user, setUser] = useState(false);
+   const [admin, setAdmin] = useState(false);
 
   useEffect(() => {
     fetch("/me").then((response) => {
@@ -26,9 +27,18 @@ function App() {
       }
     });
   }, []);
+
+  useEffect(() => {
+    fetch("/adminme").then((response) => {
+      if (response.status === 200) {
+        response.json().then((admin) => setAdmin(true));
+      }
+    });
+  }, []);
   return (
     <div className="App">
       <UserContext.Provider value={[user, setUser]}>
+      <AdminContext.Provider value={[admin, setAdmin]}>
       <Routes>
         <Route path="/" element={<LandingPage />}></Route>
         <Route path="/sign-up" element={<SignUpForm />}></Route>
@@ -43,6 +53,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />}></Route>
         <Route path="/reset-password" element={<ResetPassword />}></Route>
       </Routes>
+      </AdminContext.Provider>
       </UserContext.Provider>
     </div>
   );

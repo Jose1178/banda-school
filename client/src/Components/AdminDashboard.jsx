@@ -1,8 +1,8 @@
-
 import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import Nav from "./Nav";
 
-function AdminAdminDashboard() {
+function AdminDashboard() {
   const [admin, setAdmin] = useState({});
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -10,7 +10,7 @@ function AdminAdminDashboard() {
 
   useEffect(() => {
     fetch("/adminme", {
-      credentials: 'include'
+      credentials: "include",
     })
       .then((res) => res.json())
       .then((data) => {
@@ -38,7 +38,7 @@ function AdminAdminDashboard() {
       console.error("Error:", error);
     }
   };
-  
+
   const handleCancel = () => {
     setIsUpdating(false);
     setName(admin.name);
@@ -104,28 +104,28 @@ function AdminAdminDashboard() {
           <p className="text-gray-600">Name:</p>
           <p className="text-gray-900">{admin.name}</p>
         </div>
-            <hr className="my-4" />
-            <div className="flex items-center justify-between mt-2">
-            <p className="text-gray-600">Email:</p>
-            <p className="text-gray-900">{admin.email}</p>
-            </div>
-            <button
-                onClick={() => setIsUpdating(true)}
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 focus:outline-none focus:shadow-outline"
-            >
-            Update
-            </button>
-            </div>
-            );
-            };
+        <hr className="my-4" />
+        <div className="flex items-center justify-between mt-2">
+          <p className="text-gray-600">Email:</p>
+          <p className="text-gray-900">{admin.email}</p>
+        </div>
+        <button
+          onClick={() => setIsUpdating(true)}
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 focus:outline-none focus:shadow-outline"
+        >
+          Update
+        </button>
+        <NavLink className="block mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 focus:outline-none focus:shadow-outline" to='/sign-up'>Enroll a new student</NavLink>
+      </div>
+    );
+  };
 
-            return (
-            <div className="adminAdminDashboard">
-            <Nav />
-            {isUpdating ? renderForm() : renderDetails()}
-            </div>
-            );
-            }
+  return (
+    <div className="adminAdminDashboard">
+      <Nav />
+      {isUpdating ? renderForm() : renderDetails()}
+    </div>
+  );
+}
 
-export default AdminAdminDashboard
-
+export default AdminDashboard;

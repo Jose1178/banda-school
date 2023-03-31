@@ -1,4 +1,3 @@
-
 import React, { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -9,41 +8,34 @@ import { UserContext } from "../App";
 function Login() {
   const navigate = useNavigate();
   const [user, setUser] = useContext(UserContext);
-  //const [showAdmin, setShowAdmin] = useState(false);
   const [login, setLogin] = useState({
     admission_number: "",
     password: "",
   });
 
-
-
-  // function handleAdminClick() {
-  //   navigate("/admin");
-  // }
-
   function handleLogin(event) {
     event.preventDefault();
-    fetch("/login",{
+    fetch("/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ login }),
     })
-    .then((res) => {res.json()
-      console.log(res);
-      if (res.status === 201) {
-        setTimeout(() => navigate("/"), 1000);
-        setUser(true)
-      }else{
-        Swal.fire({
-          title: "Wrong password or admission number",
-          icon: "error",
-          timer: 2000
-        });
-      }
-    })
-    .then(data => console.log(data));
+      .then((res) => {
+        res.json();
+        if (res.status === 201) {
+          setTimeout(() => navigate("/"), 1000);
+          setUser(true);
+        } else {
+          Swal.fire({
+            title: "Wrong password or admission number",
+            icon: "error",
+            timer: 2000,
+          });
+        }
+      })
+      .then((data) => console.log(data));
     setLogin({
       admission_number: "",
       password: "",
@@ -120,13 +112,12 @@ function Login() {
               >
                 Login
               </button>
-            </form> 
+            </form>
             <div>
-               <Link to='/adminlogin'>Admin Log in</Link>
+              <Link to="/adminlogin">Admin Log in</Link>
             </div>
           </div>
         </div>
-        
       </div>
     </section>
   );

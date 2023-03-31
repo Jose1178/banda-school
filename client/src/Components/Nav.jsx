@@ -1,14 +1,14 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { UserContext } from "../App";
+import { AdminContext, UserContext } from "../App";
 
 function Nav() {
   const navigate = useNavigate();
   const [user, setUser] = useContext(UserContext);
+  const [admin, setAdmin] = useContext(AdminContext);
 
   function logout() {
-    // setTimeout(() => navigate("/login"), 1000);
-    if(user === true){
+    if (user === true) {
       fetch("/logout", {
         method: "delete",
       }).then((res) => {
@@ -17,8 +17,23 @@ function Nav() {
           setUser(false);
         }
       });
-    }else{
+    } else {
       setTimeout(() => navigate("/login"), 1000);
+    }
+  }
+
+  function adminLogout() {
+    if (admin === true) {
+      fetch("/logout/admin", {
+        method: "delete",
+      }).then((res) => {
+        if (res.status === 204) {
+          setTimeout(() => navigate("/"), 1000);
+          setAdmin(false);
+        }
+      });
+    } else {
+      setTimeout(() => navigate("/adminlogin"), 1000);
     }
   }
   return (
@@ -86,8 +101,28 @@ function Nav() {
                 </NavLink>
               )}
 
+              {admin && (
+                <NavLink
+                  to="/admindashboard"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-yellow-500 font-bold underline"
+                      : "underline"
+                  }
+                >
+                  AdminDashboard
+                </NavLink>
+              )}
+
               <button onClick={logout} className="underline cursor-pointer">
-                {user === true ? "Logout" : "Login"}
+                {user === true ? "StudentLogout" : "StudentLogin"}
+              </button>
+
+              <button
+                onClick={adminLogout}
+                className="underline cursor-pointer"
+              >
+                {admin === true ? "AdminLogout" : "AdminLogin"}
               </button>
             </ul>
           </div>

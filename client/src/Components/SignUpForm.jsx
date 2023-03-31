@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
  function SignUpForm() {
+  const navigate = useNavigate();
   const [student, setStudent] = useState({
     admission_number: "",
     name: "",
@@ -19,8 +22,22 @@ import React, { useState } from "react";
       },
       body: JSON.stringify({ student }),
     })
-    .then((res) => res.json())
-    .then((data) => console.log(data));
+    .then((res) => {res.json()
+      if (res.status === 201) {
+        Swal.fire({
+            title: "You have successfully registered the student.",
+            icon: "success",
+            timer: 2000
+          });
+          setTimeout(() => navigate("/"), 1000);
+      }else{
+        Swal.fire({
+          title: "There was an error creating the student.",
+          icon: "error",
+          timer: 2000
+        });
+      }
+    })
     setStudent({
       admission_number: "",
       name: "",
