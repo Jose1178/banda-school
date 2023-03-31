@@ -1,34 +1,55 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import AdminDashboard from "./AdminDashboard";
 
 function AdminSignupForm() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [admin, setAdmin] = useState({
+    name: "",
+    email: "",
+    password: ""
+  });
+  const [isSignedUp, setIsSignedUp] = useState(false);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log({ name, email, password });
-
-    fetch("/admins", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ name, email, password }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("Success:", data);
-        setName("");
-        setEmail("");
-        setPassword("");
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+  const admins_params = () => {
+    return {
+      admin: {
+        name: admin.name,
+        email: admin.email,
+        password: admin.password
+      }
+    };
   };
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    console.log({ admin });
+    try {
+      const response = await fetch("/admins", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(admins_params()),
+      });
+      const data = await response.json();
+      console.log("Success:", data);
+      setIsSignedUp(true);
+      setAdmin({
+        name: "",
+        email: "",
+        password: ""
+      });
+      window.location.href = "/admindashboard"; // Navigate to admin dashboard page
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
+  if (isSignedUp) {
+    return <AdminDashboard />;
+  }
+ 
+  
   return (
     <section className="bg-gray-100 h-screen flex items-center adminsignup">
       <div className="container mx-auto max-w-md">
@@ -42,8 +63,8 @@ function AdminSignupForm() {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               type="text"
               id="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              value={admin.name}
+              onChange={(e) => setAdmin({ ...admin, name: e.target.value })}
               required
             />
           </div>
@@ -55,8 +76,8 @@ function AdminSignupForm() {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               type="email"
               id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={admin.email}
+              onChange={(e) => setAdmin({ ...admin, email: e.target.value })}
               required
             />
           </div>
@@ -68,8 +89,8 @@ function AdminSignupForm() {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               type="password"
               id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={admin.password}
+              onChange={(e) => setAdmin({ ...admin, password: e.target.value })}
               required
             />
           </div>
@@ -77,12 +98,12 @@ function AdminSignupForm() {
             Signup
           </button>
           <div className="mt-4 text-center">
-            Already have an account? <Link to="/adminlogin" className="text-blue-500 hover:text-blue-700">Log in</Link>
+            Already have an account? <Link to="/adminlogin"  className="text-blue">Login</Link>
           </div>
-        </form>
-      </div>
-    </section>
-  );
+          </form>
+          </div>
+          </section>
+);
 }
 
 export default AdminSignupForm;

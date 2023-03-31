@@ -13,6 +13,7 @@ import ResetPassword from "./Components/ResetPassword";
 //import AdminLoginForm from "./Components/AdminLoginForm";
 import AdminSignupForm from "./Components/AdminSignupForm";
 import AdminLoginForm from "./Components/AdminLoginForm";
+import AdminDashboard from "./Components/AdminDashboard";
 
 export const UserContext = createContext();
 function App() {
@@ -36,6 +37,7 @@ function App() {
         <Route path="/adminsignup" element={<AdminSignupForm/>} ></Route>
         <Route path="/courses" element={<Courses />}></Route>
         <Route path="/courses/units/:id" element={<Units />}></Route>
+        <Route path="/admindashboard" element={<AdminDashboard />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
         <Route path="/dashboard" element={<Dashboard />}></Route>
