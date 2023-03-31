@@ -24,7 +24,7 @@ function AdminLoginForm() {
         res.json();
         if (res.status === 201) {
           setTimeout(() => navigate("/"), 1000);
-           setAdmin(true);
+          setAdmin(true);
         } else {
           Swal.fire({
             title: "Wrong password or email",
@@ -96,13 +96,15 @@ function AdminLoginForm() {
           >
             Login
           </button>
-          <div className="mt-4 text-center">
-            Don't have an account?{" "}
+          <div className="mt-4 text-center flex justify-between">
             <Link
               className="text-blue-500 hover:text-blue-700"
               to="/adminsignup"
             >
-              Sign up
+              <span className="text-black">Don't have an account?{" "}</span>Sign up
+            </Link>
+            <Link to="/" className="underline text-blue-500">
+              Homepage
             </Link>
           </div>
         </form>

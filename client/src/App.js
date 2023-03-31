@@ -13,6 +13,7 @@ import ResetPassword from "./Components/ResetPassword";
 import AdminSignupForm from "./Components/AdminSignupForm";
 import AdminLoginForm from "./Components/AdminLoginForm";
 import AdminDashboard from "./Components/AdminDashboard";
+import NewCourse from "./Components/NewCourse";
 
 export const UserContext = createContext();
 export const AdminContext = createContext();
@@ -52,6 +53,7 @@ function App() {
         <Route path="/contact" element={<Contact />}></Route>
         <Route path="/dashboard" element={<Dashboard />}></Route>
         <Route path="/reset-password" element={<ResetPassword />}></Route>
+        <Route path="/new-course" element={<NewCourse />}></Route>
       </Routes>
       </AdminContext.Provider>
       </UserContext.Provider>

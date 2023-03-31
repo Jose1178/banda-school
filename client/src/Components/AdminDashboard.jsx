@@ -58,7 +58,6 @@ function AdminDashboard() {
             name="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            required
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
@@ -72,7 +71,6 @@ function AdminDashboard() {
             name="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
@@ -116,6 +114,7 @@ function AdminDashboard() {
           Update
         </button>
         <NavLink className="block mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 focus:outline-none focus:shadow-outline" to='/sign-up'>Enroll a new student</NavLink>
+        <NavLink className="block mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 focus:outline-none focus:shadow-outline" to='/new-course'>Create a new course</NavLink>
       </div>
     );
   };

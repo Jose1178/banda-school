@@ -113,8 +113,9 @@ function Login() {
                 Login
               </button>
             </form>
-            <div>
-              <Link to="/adminlogin">Admin Log in</Link>
+            <div className="flex justify-between">
+              <Link to="/adminlogin" className="underline text-blue-500">Admin Log in</Link>
+              <Link to="/" className="underline text-blue-500">Homepage</Link>
             </div>
           </div>
         </div>

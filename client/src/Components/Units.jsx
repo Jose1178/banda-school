@@ -40,7 +40,7 @@ function Units() {
     );
   });
   return (
-    <div className="bg-gray-300">
+    <div>
       <Nav />
       <h1 className="mt-3 underline text-3xl">{`${course.name} units`}</h1>
       <div className="mt-4 px-10 text-left">
@@ -64,10 +64,59 @@ function Units() {
           need to succeed academically and in life. So, take a look around and
           see what we have to offer.
         </p>
-        <h2 className="text-center text-xl text-bold mt-5">Below are the units for this course.</h2>
+        <h2 className="text-center text-xl text-bold mt-5">
+          Below are the units for this course.
+        </h2>
       </div>
+      <button className="bg-green-400 px-4 py-1 rounded-sm"><a href="#edit-form">Edit Form</a></button>
       <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-5">
         {unitsDiv}
+      </div>
+      <div id="edit-form">
+        <form className="mx-auto my-10 max-w-lg">
+          <div className="mb-4">
+            <label
+              htmlFor="name"
+              className="block text-gray-600 font-bold mb-2"
+            >
+              Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+          <div className="mb-6">
+            <label
+              htmlFor="email"
+              className="block text-gray-600 font-bold mb-2"
+            >
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+          <div className="flex items-center justify-between">
+            <button
+              type="submit"
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            >
+              Save
+            </button>
+            <button
+              type="button"
+              className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );

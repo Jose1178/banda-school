@@ -98,7 +98,7 @@ function AdminSignupForm() {
             Signup
           </button>
           <div className="mt-4 text-center">
-            Already have an account? <Link to="/adminlogin"  className="text-blue">Login</Link>
+            Already have an account? <Link to="/adminlogin" className="text-blue-500 underline">Login</Link>
           </div>
           </form>
           </div>
