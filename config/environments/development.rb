@@ -1,9 +1,10 @@
 require "active_support/core_ext/integer/time"
+# config/environments/development.rb
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  # In the development environment your application's code is reloaded any time
+  # In the development environment, your application's code is reloaded any time
   # it changes. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
@@ -45,10 +46,7 @@ Rails.application.configure do
   config.active_record.verbose_query_logs = true
 
   # Whitelist the ngrok host URL
-  config.hosts << "ce08-102-215-33-9.ngrok-free.app"
-
-  # Clear the host whitelist
-  config.hosts.clear
+  config.hosts << '.ngrok.io'
 
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
@@ -58,5 +56,7 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+
 end
+
 
