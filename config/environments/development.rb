@@ -17,8 +17,8 @@ Rails.application.configure do
   # Enable server timing
   config.server_timing = true
 
-  # Enable/disable caching. By default caching is disabled.
-  # Run rails dev:cache to toggle caching.
+  # Enable/disable caching. By default, caching is disabled.
+  # Run `rails dev:cache` to toggle caching.
   if Rails.root.join("tmp/caching-dev.txt").exist?
     config.cache_store = :memory_store
     config.public_file_server.headers = {
@@ -26,7 +26,6 @@ Rails.application.configure do
     }
   else
     config.action_controller.perform_caching = false
-
     config.cache_store = :null_store
   end
 
@@ -45,6 +44,11 @@ Rails.application.configure do
   # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true
 
+  # Whitelist the ngrok host URL
+  config.hosts << "ce08-102-215-33-9.ngrok-free.app"
+
+  # Clear the host whitelist
+  config.hosts.clear
 
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
@@ -55,3 +59,4 @@ Rails.application.configure do
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
 end
+

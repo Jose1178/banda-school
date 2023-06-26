@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :mpesas
   resources :fees
   resources :course_units
   resources :units, only: [:index]
@@ -11,4 +12,7 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   delete "/logout/admin", to: "sessions#destroy_admin"
   get "/adminme", to: "admins#logged_in"
+
+  post 'stkpush', to: 'mpesa#stkpush'
+  post 'polling_payment', to: 'mpesa#polling_payment'
 end
